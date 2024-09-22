@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<!--      xmlns:f="http://xmlns.jcp.org/jsf/core"-->
+<!--        xmlns:h="http://java.sun.com/jsf/html"-->
+<!--        xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:h="jakarta.faces.html"-->
+<!--      xmlns:f="jakarta.faces.core"-->
+<!--      xmlns:ui="jakarta.faces.facelets"-->
+<html
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Lab 3</title>
+    <h:outputScript name="js/draw.js"/>
+    <h:outputScript name="js/main.js"/>
+    <h:outputStylesheet name="css/main.css" />
+</h:head>
+<h:body>
+    <div class="forma">
+        <h:form>
+            <div class="x">
+                <h:outputLabel value="x = "/>
+                <p:spinner value="#{resultBean.newDot.x}"
+                           buttons="horizontal"
+                           stepFactor="0.1"
+                           min="-5"
+                           max="5"
+                />
+            </div>
+            <div class="y">
+                <h:outputLabel value="y = "/>
+                <h:inputText value="#{resultBean.newDot.y}" required="true">
+                    <f:validateDoubleRange maximum="5" minimum="-5" />
+<!--                    <f:validateRegex pattern="^(-?[1-5])|(0)|(-?[0-5]\.[1-9]+)|(-?[0-5]\.[0]+\d*[1-9]+)$"/>-->
+                </h:inputText>
+            </div>
+            <div class="r">
+                <h:outputLabel value="r = "/>
+                <h:inputHidden value="#{resultBean.newDot.r}" required="true"/>
+                <h:commandButton value="1" onclick="RR(1)" />
+                <h:commandButton value="1.5" onclick="RR(1.5)" />
+                <h:commandButton value="2" onclick="RR(2)" />
+                <h:commandButton value="2.5" onclick="RR(2.5)" />
+                <h:commandButton value="3" onclick="RR(3)" />
+            </div>
+            <div class="but">
+                <h:commandButton type="submit" value="Submit" action="#{resultBean.addDot()}"/>
+
+            </div>
+        </h:form>
+        <h:form>
+            <h:commandButton value="Enter" action="enter"/>
+        </h:form>
+        <h:form >
+            <h:commandButton value="Clear" action="#{resultBean.clear()}"/>
+        </h:form>
+
+    </div>
+
+
+    <div class="can">
+        <canvas id="canvas" width="600" height="600">
+            <h:outputScript>
+                const canvas = document.getElementById("canvas");
+                let r = (canvas.width+canvas.height)/25;
+                const arr = <h:outputText value="#{resultBean.jsArray}"/>;
+                draw(arr, r);
+            </h:outputScript>
+        </canvas>
+    </div>
+
+    <div class="res">
+        <h:dataTable value="#{resultBean.dots}" var="dot" rowClasses="hover">
+            <h:column >
+                <f:facet name="header">X</f:facet>
+                <h:outputText value="#{dot.x}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Y</f:facet>
+                <h:outputText value="#{dot.y}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">R</f:facet>
+                <h:outputText value="#{dot.r}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Hit</f:facet>
+                <h:outputText value="#{dot.hit}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+
+
+    <h:outputScript>
+        dott (arr);
+    </h:outputScript>
+</h:body>
+</html>

@@ -1,0 +1,85 @@
+html, body {
+    background-color: black;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+input[type="text"], .ui-spinner {
+    color: #ffffff;
+    background: transparent;
+    outline: none;
+    border: transparent;
+}
+
+*.ui-state-focus {
+    border: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.ui-spinner-text, input[type="text"] {
+    text-align: center !important;
+}
+
+button, input[type="button"], input[type="submit"], .ui-spinner-button {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    margin: 5px;
+    border: 5px #000000 !important;
+    min-height: 45px;
+    min-width: 50px;
+    text-align: center;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transition: .15s;
+    background: #000000;
+    color: #d29cff;
+    border-radius: 10px;
+    box-shadow:
+            0 0 5px #f9f6fc,
+            0 0 25px #cca2f5,
+            0 0 50px #b870ef,
+            0 0 100px #992af1;
+}
+
+div.x, div.y, div.r, div.sub, .inp, .linp {
+    position: relative;
+    align-content: center;
+    border-radius: 5px;
+    margin: 5px;
+    border: 5px;
+    padding: 5px;
+    min-width: 250px;
+    background: transparent;
+}
+
+div.res, div.can, div.forma{
+    vertical-align: top;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px;
+    padding: 5px;
+    max-height: 100%;
+    background: transparent;
+}
+div.res {
+    float: right;
+    min-width: 250px;
+    height: 450px;
+    max-height: 450px;
+    overflow: hidden scroll;
+}
+
+.hover {
+    background: linear-gradient(#992af1, #b870ef, #d29cff) var(--p, 0) / var(--p, 0) no-repeat;
+    transition: .4s, background-position 0s;
+}
+.hover:hover {
+    --p: 100%;
+    color: #fff;
+}

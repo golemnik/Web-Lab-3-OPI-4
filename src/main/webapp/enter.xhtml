@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:h="http://java.sun.com/jsf/html">-->
+
+<html
+        xmlns:h="jakarta.faces.html"
+        xmlns:f="jakarta.faces.core"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Lab 3</title>
+        <h:outputScript name="js/timer.js"/>
+        <h:outputStylesheet name="css/main.css"/>
+    </h:head>
+
+    <h:body>
+        <div class="forma">
+            <div>
+                <h:outputText value="Создатель: Кокорев Михаил Дмитриевич"/> <br/>
+                <h:outputText value="Группа: З219"/> <br/>
+                <h:outputText value="Вариант: 2942"/> <br/>
+            </div>
+            <div class="time">
+                <h:outputText id="timer" value="Time now:"/> <br/>
+            </div>
+
+            <h:form>
+                <div class="but">
+                    <h:commandButton value="Main" action="main"/>
+                    <h:commandButton value="Endless" action="#{redirectBean.redirectEndless()}"/>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
