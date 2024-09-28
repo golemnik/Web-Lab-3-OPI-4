@@ -73,6 +73,12 @@
     </div>
 
     <div class="res">
+        <h:outputLabel value="Dots amount: #{resultBean.countDots()}"/>
+        <br/>
+        <h:outputLabel value="Hitted dots amount: #{resultBean.countSuccessDots()}"/>
+        <br/>
+        <h:outputLabel value="Mid time: #{resultBean.midTime()}"/>
+        <br/>
         <h:dataTable value="#{resultBean.dots}" var="dot" rowClasses="hover">
             <h:column >
                 <f:facet name="header">X</f:facet>

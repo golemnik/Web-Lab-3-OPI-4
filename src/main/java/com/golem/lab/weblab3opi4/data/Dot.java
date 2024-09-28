@@ -3,6 +3,8 @@ package com.golem.lab.weblab3opi4.data;
 import jakarta.inject.Named;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Named
 @Entity
 @Table(name = "dot", schema = "s368324")
@@ -19,6 +21,9 @@ public class Dot {
     private double r;
     @Column(name = "hit")
     private boolean hit;
+
+    @Column(name = "time")
+    private Date time;
 
     public Dot () {}
     public void setX(double x) {
@@ -52,6 +57,15 @@ public class Dot {
     public boolean getHit () {
         return hit;
     }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
 
     public void setId(Long id) {
         this.id = id;
